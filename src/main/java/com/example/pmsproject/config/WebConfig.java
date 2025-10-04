@@ -18,8 +18,12 @@ public class WebConfig {
         CorsConfiguration config = new CorsConfiguration();
 
 
-        config.setAllowedOrigins(List.of("http://localhost:5173"));
-
+       // config.setAllowedOrigins(List.of("http://localhost:5173"));
+        // ✅ Allow both local and deployed frontend
+        config.setAllowedOrigins(List.of(
+                "http://localhost:5173",
+                "https://starlit-hamster-0d393b.netlify.app"
+        ));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         config.setAllowCredentials(true);
